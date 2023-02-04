@@ -42,21 +42,22 @@
                 Add new meme
             </div>
         </header>
-        <section class="memes">
-            <div id="meme-1">
-                <img src="public/uploads/<?= $meme->getImage() ?>">
-                <div>
-                    <h2><?= $meme->getTitle() ?></h2>
-                    <p><?= $meme->getDescription() ?></p>
-                    <div class="social-section">
-                        <i class="fa-solid fa-thumbs-up"> 44</i>
-                        <i class="fa-solid fa-thumbs-down"> 2</i>
-                    </div>
-                </div>
-            </div>
-            <div>Have you seen it?</div>
-            <div>TiTlE oF MeMe</div>
-            <div>Whooooooa</div>
+        <section class="memes-form">
+            <h1>UPLOAD</h1>
+            <form action="addMeme" method="POST" ENCTYPE="multipart/form-data">
+                <?php
+                if(isset($messages)){
+                    foreach($messages as $message) {
+                        echo $message;
+                    }
+                }
+                ?>
+                <input name="title" type="text" palceholder="title">
+                <textarea name="description" rows="5" placeholder="description"></textarea>
+
+                <input type="file" name="file">
+                <button type="submit">send</button>
+            </form>
         </section>
     </main>
 </div>

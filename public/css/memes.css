@@ -30,3 +30,13 @@ section {
     flex-direction: column;
     justify-content: space-between;
 }
+
+section.memes-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.memes-form > form{
+    display: flex;
+    flex-direction: column;
+}

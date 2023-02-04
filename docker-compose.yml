@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: docker/nginx/Dockerfile
     ports:
-      - "8080:80"
+      - "9090:90"
     volumes:
       - .:/app/
     links:
