@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/memes.css">
+    <script type="text/javascript" src="./public/js/visual.js" defer></script>
 
     <script src="https://kit.fontawesome.com/32e257cbac.js" crossorigin="anonymous"></script>
     <title>MEMES</title>
@@ -25,6 +26,9 @@
                 <a href="#" class="button">Messages</a>
             </li>
             <li>
+                <img src="./public/img/trollface.gif">
+            </li>
+            <li>
                 <i class="fa-solid fa-comment"></i>
                 <a href="#" class="button">Notifications</a>
             </li>
@@ -43,21 +47,31 @@
             </div>
         </header>
         <section class="memes">
-            <div id="meme-1">
-                <img src="public/uploads/<?= $meme->getImage() ?>">
-                <div>
-                    <h2><?= $meme->getTitle() ?></h2>
-                    <p><?= $meme->getDescription() ?></p>
-                    <div class="social-section">
-                        <i class="fa-solid fa-thumbs-up"> 44</i>
-                        <i class="fa-solid fa-thumbs-down"> 2</i>
+            <?php foreach ($memes as $meme): ?>
+
+                <div id="meme-1">
+
+                    <div>
+                        <h2><?= $meme->getTitle() ?></h2>
+                        <p><?= $meme->getDescription() ?></p>
+                        <div class="social-section">
+                            <i class="fa-solid fa-thumbs-up"> 44</i>
+                            <i class="fa-solid fa-thumbs-down"> 2</i>
+                        </div>
                     </div>
+                    <img src="public/uploads/<?= $meme->getImage() ?>">
                 </div>
-            </div>
+            <?php endforeach; ?>
             <div>Have you seen it?</div>
             <div>TiTlE oF MeMe</div>
             <div>Whooooooa</div>
         </section>
     </main>
+    <div class="ads-container">
+        <img src="public/img/cars.gif">
+        <img src="public/img/mazda.gif">
+        <img src="public/img/mini.gif">
+
+    </div>
 </div>
 </body>

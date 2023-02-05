@@ -10,8 +10,5 @@ class DefaultController extends AppController
         $this->render('login');
     }
 
-    public function memes()
-    {
-        $this->render('memes');
-    }
+
 }

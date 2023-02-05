@@ -2,6 +2,7 @@
 
 require_once 'AppController.php';
 require_once __DIR__ .'/../models/Meme.php';
+require_once __DIR__ .'/../repository/MemeRepository.php';
 
 class MemeController extends AppController
 {
@@ -10,6 +11,19 @@ class MemeController extends AppController
     const UPLOAD_DIRECTORY = '/../public/uploads/';
 
     private $messages = [];
+    private $memeRepository;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->memeRepository = new MemeRepository();
+    }
+
+    public function memes()
+    {
+        $memes = $this->memeRepository->getMemes();
+        $this->render('memes',['memes' => $memes]);
+    }
 
     public function AddMeme()
     {
@@ -22,12 +36,15 @@ class MemeController extends AppController
             );
 
             $meme = new Meme($_POST['title'],$_POST['description'],$_FILES['file']['name']);
+        $this->memeRepository->addMeme($meme);
 
 
-            return $this->render('memes', ['messages' => $this->messages, 'meme' => $meme]);
+            return $this->render('memes', [
+                'memes' => $this->memeRepository->getMemes(),
+                'messages' => $this->messages, 'meme' => $meme]);
         }
 
-        $this->render('add-project', ['messages' => $this->messages]);
+        $this->render('add-meme', ['messages' => $this->messages]);
 
     }
 

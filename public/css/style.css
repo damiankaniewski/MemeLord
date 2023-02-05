@@ -24,11 +24,11 @@ body {
     text-align: center;
 }
 
-.login-container {
+.login-container, .register-container {
     width: 50%;
 }
 
-form.login {
+form.login, form.register {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,6 +40,10 @@ form.login {
     box-shadow: 17px 17px 8px rgba(0, 0, 0, 0.25);
     border: 1px solid #CCCCCC;
     border-radius: 14px;
+}
+
+form.register {
+    height: fit-content;
 }
 
 button {
@@ -54,6 +58,7 @@ button {
     margin: 1em;
     line-height: 2.5em;
 }
+
 
 input, textarea {
     background-color: transparent;
@@ -74,7 +79,7 @@ input, textarea {
         font-size: 36px;
     }
 
-    .login-container,
+    .login-container, .register-container
     .logo {
         width: 100%;
     }
@@ -95,15 +100,30 @@ input, textarea {
     justify-content: flex-start;
     height: 100vh;
 }
-
+.ads-container{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 100%;
+    background: linear-gradient(180deg, #D3ED30 0%, #00FFF0 100%);
+    align-items: center;
+    justify-content: center;
+}
+.ads-container img{
+    margin-top: 1em;
+    box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.25);
+    width: 300px;
+    height: 250px;
+}
 nav {
-    width: 20vw;
+    width: 30vw;
     height: 100%;
     background: linear-gradient(180deg, #D3ED30 0%, #00FFF0 100%);
 }
 
 main {
     width: 80vw;
+    line-height: 2em;
 }
 
 nav {
@@ -131,6 +151,7 @@ li i {
 .button {
 
     background: linear-gradient(270deg, #00FFF0 0%, #A9FFCB 100%);
+    transition: background 0.4s ease;
     border: 1px solid #CCCCCC;
     border-radius: 15px;
     box-shadow: 7px 7px 8px rgba(0, 0, 0, 0.25);
@@ -144,6 +165,12 @@ li i {
     letter-spacing: 0.72px;
     padding: 0.2rem;
     width: 60%;
+
+
+}
+.button:hover {
+    background: linear-gradient(270deg, #00bdb2 55%, #00c944 100%);
+    border: 1px solid transparent;
 }
 
 ul {
@@ -163,6 +190,20 @@ li {
     margin-bottom: 1em;
 }
 
+li img{
+    opacity: 0;
+    transition: opacity 2s linear;
+
+    margin-top: 5em;
+    margin-left: 2.5em;
+    width: 300px;
+    height: 300px;
+}
+li img:hover{
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+
 li:last-child {
     position: absolute;
     bottom: 0;
@@ -171,8 +212,12 @@ li:last-child {
 
 main {
     display: flex;
-    background: linear-gradient(180deg, #FFFFFF 0%, #CCCCCC 100%);
+    background-image: url('../img/background.svg');
+    background-color: rgba(255, 255, 255, 0.1);
+    background-repeat: no-repeat;
+    background-size: cover;
     flex-direction: column;
+
     height: 100vh;
 }
 
@@ -212,4 +257,11 @@ header {
     color: #A8A8A8;
     margin: 0;
     box-sizing: border-box;
+}
+
+.no-valid {
+    border: 3px solid red;
+    border-radius: 1em;
+    box-shadow: 0 0 0.2em red;
+    outline: none;
 }
