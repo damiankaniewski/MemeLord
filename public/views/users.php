@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php require('public/views/common/sessionValidation.php') ?>
+
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/users.css">
@@ -15,26 +18,7 @@
 
 <body>
 <div class="base-container">
-    <nav>
-        <img src="public/img/logo.svg">
-        <ul>
-            <li>
-                <i class="fa-solid fa-images"></i>
-                <a href="memes" class="button">Memes</a>
-            </li>
-            <li>
-                <i class="fa-solid fa-people-group"></i>
-                <a href="users" class="button">Users</a>
-            </li>
-
-            <li id="links">
-                <img id="fb" src="./public/img/facebook.svg">
-                <img id="tw" src="./public/img/twitter.svg">
-                <img id="ig" src="./public/img/ig.svg">
-
-            </li>
-        </ul>
-    </nav>
+    <?php require('public/views/common/navBar.php'); ?>
     <main>
         <header>
         </header>

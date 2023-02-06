@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php require('public/views/common/sessionValidation.php') ?>
+
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/memes.css">
@@ -8,34 +11,14 @@
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <script type="text/javascript" src="./public/js/statistics.js" defer></script>
     <script type="text/javascript" src="./public/js/notifications.js" defer></script>
+    <script type="text/javascript" src="./public/js/ads.js" defer></script>
 
     <title>MEMES</title>
 </head>
 
 <body>
 <div class="base-container">
-    <nav>
-        <img src="public/img/logo.svg">
-        <ul>
-            <li>
-                <i class="fa-solid fa-images"></i>
-                <a href="memes" class="button">Memes</a>
-            </li>
-            <li>
-                <i class="fa-solid fa-people-group"></i>
-                <a href="users" class="button">People</a>
-            </li>
-            <li id="logout">
-                <img id="logout" src="./public/img/logout.png">
-            </li>
-            <li id="links">
-
-                <img id="fb" src="./public/img/facebook.svg">
-                <img id="tw" src="./public/img/twitter.svg">
-                <img id="ig" src="./public/img/ig.svg">
-            </li>
-        </ul>
-    </nav>
+    <?php require('public/views/common/navBar.php'); ?>
     <main>
         <header>
             <div class="search-bar">

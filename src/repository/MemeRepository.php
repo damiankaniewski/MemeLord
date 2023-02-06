@@ -49,7 +49,7 @@ VALUES (?,?,?,?,?)');
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM memes;
+            SELECT * FROM view_memes;
         ');
         $stmt->execute();
         $memes = $stmt->fetchAll(PDO::FETCH_ASSOC);

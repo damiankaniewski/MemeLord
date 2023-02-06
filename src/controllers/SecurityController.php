@@ -13,7 +13,11 @@ class SecurityController extends AppController {
         parent::__construct();
         $this->userRepository = new UserRepository();
     }
-
+    public function logout()
+    {
+        session_destroy();
+        return $this->render('login', ['messages' => ['You have been logged out successfully']]);
+    }
     public function login()
     {
         if (!$this->isPost()) {
@@ -21,21 +25,21 @@ class SecurityController extends AppController {
         }
 
         $email = $_POST['email'];
-        $password = md5($_POST['password']);
+        $password = $_POST['password'];
 
-        $user = $this->userRepository->getUser($email);
-
-        if (!$user) {
-            return $this->render('login', ['messages' => ['User not found!']]);
+        try {
+            $user = $this->userRepository->getUser($email);
+        } catch (Exception $error) {
+            return $this->render('login', ["messages" => [$error->getMessage()]]);
         }
 
-        if ($user->getEmail() !== $email) {
-            return $this->render('login', ['messages' => ['User with this email not exist!']]);
-        }
 
-        if ($user->getPassword() !== $password) {
+        if (!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
+
+        $_SESSION['user_id'] = $user->getId();
+        $_SESSION['user_details'] = $user->getName() . ' ' . $user->getSurname();
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/memes");
@@ -53,17 +57,19 @@ class SecurityController extends AppController {
         $name = $_POST['name'];
         $surname = $_POST['surname'];
         $phone = $_POST['phone'];
+        $id = "";
 
         if ($password !== $confirmedPassword) {
             return $this->render('register', ['messages' => ['Please provide proper password']]);
         }
 
         //TODO try to use better hash function
+
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         if (password_needs_rehash($hashedPassword, PASSWORD_BCRYPT))
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
         //
-        $user = new User($email, $hashedPassword, $name, $surname);
+        $user = new User($email, $hashedPassword, $name, $surname, $id);
         $user->setPhone($phone);
 
         $this->userRepository->addUser($user);
