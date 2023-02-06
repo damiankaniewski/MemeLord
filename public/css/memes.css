@@ -63,11 +63,17 @@ section.memes-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
 }
 
 .memes-form > form {
+
+    background-color: #CCCCCC;
     display: flex;
     flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-device-width: 420px) {

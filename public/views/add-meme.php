@@ -14,15 +14,11 @@
         <ul>
             <li>
                 <i class="fa-solid fa-images"></i>
-                <a href="#" class="button">Memes</a>
+                <a href="memes" class="button">Memes</a>
             </li>
             <li>
                 <i class="fa-solid fa-people-group"></i>
-                <a href="#" class="button">People</a>
-            </li>
-            <li>
-                <i class="fa-regular fa-comments"></i>
-                <a href="#" class="button">Messages</a>
+                <a href="users" class="button">Users</a>
             </li>
             <li>
                 <i class="fa-solid fa-comment"></i>
@@ -32,18 +28,9 @@
     </nav>
     <main>
         <header>
-            <div class="search-bar">
-                <form>
-                    <input placeholder="Search memes">
-                </form>
-            </div>
-            <div class="add-meme">
-                <i class="fas fa-plus"></i>
-                Add new meme
-            </div>
+
         </header>
         <section class="memes-form">
-            <h1>UPLOAD</h1>
             <form action="addMeme" method="POST" ENCTYPE="multipart/form-data">
                 <?php
                 if(isset($messages)){
@@ -52,13 +39,19 @@
                     }
                 }
                 ?>
-                <input name="title" type="text" palceholder="title">
+                <input name="title" type="text" placeholder="title">
                 <textarea name="description" rows="5" placeholder="description"></textarea>
 
                 <input type="file" name="file">
-                <button type="submit">send</button>
+                <button type="submit">UPLOAD</button>
             </form>
         </section>
     </main>
+    <div class="ads-container">
+        <img src="public/img/cars.gif">
+        <img src="public/img/mazda.gif">
+        <img src="public/img/mini.gif">
+
+    </div>
 </div>
 </body>

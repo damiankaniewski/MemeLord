@@ -1,0 +1,60 @@
+section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2em;
+    padding: 2em;
+    overflow: auto;
+    color: #FFFFFF;
+    text-shadow: 3px 3px 0px #000000;
+}
+
+.users > div > img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+}
+
+.users > div > div {
+    height: 10%;
+    margin: 1em;
+    color: #FFFFFF;
+
+
+}
+.users > div {
+    /*background-color: lightgray;*/
+    background-image: url("../img/memeBackgrounds/image2.jpg");
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #CCCCCC;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section.users-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.users-form > form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-device-width: 420px) {
+
+    .users > div {
+        justify-content: center;
+    }
+
+    .users > div > img {
+        width: 80%;
+        object-fit: contain;
+    }
+
+
+}

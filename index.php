@@ -9,6 +9,7 @@ Routing::get('', 'DefaultController');
 Routing::get('memes', 'MemeController');
 Routing::get('like', 'MemeController');
 Routing::get('dislike', 'MemeController');
+Routing::get('users', 'DefaultController');
 Routing::post('login', 'SecurityController');
 Routing::post('addMeme', 'MemeController');
 Routing::post('register', 'SecurityController');

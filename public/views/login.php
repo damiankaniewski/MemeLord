@@ -26,7 +26,8 @@
             <button type="submit">LOGIN</button>
 
         </form>
-        <button type="goToRegister">No account? Register!</button>
+        <a href="register" class="button" id="formButton">No account? Register!</a>
+
     </div>
 </div>
 </body>

@@ -8,6 +8,7 @@
     <script type="text/javascript" src="./public/js/visual.js" defer></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <script type="text/javascript" src="./public/js/statistics.js" defer></script>
+    <script type="text/javascript" src="./public/js/notifications.js" defer></script>
 
     <title>MEMES</title>
 </head>
@@ -19,32 +20,32 @@
         <ul>
             <li>
                 <i class="fa-solid fa-images"></i>
-                <a href="#" class="button">Memes</a>
+                <a href="memes" class="button">Memes</a>
             </li>
             <li>
                 <i class="fa-solid fa-people-group"></i>
-                <a href="#" class="button">People</a>
+                <a href="users" class="button">People</a>
             </li>
-            <li>
-                <img src="./public/img/trollface.gif">
+            <li id="logout">
+                <img id="logout" src="./public/img/logout.png">
             </li>
-            <li>
-                <i class="fa-solid fa-comment"></i>
-                <a href="#" class="button">Notifications</a>
+            <li id="links">
+
+                <img id="fb" src="./public/img/facebook.svg">
+                <img id="tw" src="./public/img/twitter.svg">
+                <img id="ig" src="./public/img/ig.svg">
             </li>
         </ul>
     </nav>
     <main>
         <header>
             <div class="search-bar">
-
                 <input placeholder="search memes">
+            </div>
+            <div id="addMeme">
+                <a href="addMeme" class="button"><i class="fas fa-plus"></i>Add meme</a>
+            </div>
 
-            </div>
-            <div class="add-meme">
-                <i class="fas fa-plus"></i>
-                Add new meme
-            </div>
         </header>
         <section class="memes">
             <?php foreach ($memes as $meme): ?>
