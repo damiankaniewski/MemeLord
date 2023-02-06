@@ -10,8 +10,7 @@
             <a href="users" class="button">People</a>
         </li>
         <li id="logout">
-            <img id="logout" src="./public/img/logout.png">
-            <a href="logout" class="button">Logout</a>
+            <a href="logout" class="button" id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
         </li>
         <li id="links">
 

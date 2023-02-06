@@ -1,10 +1,11 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__ .'/../models/User.php';
-require_once __DIR__.'/../repository/UserRepository.php';
+require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../repository/UserRepository.php';
 
-class SecurityController extends AppController {
+class SecurityController extends AppController
+{
 
     private $userRepository;
 
@@ -13,11 +14,13 @@ class SecurityController extends AppController {
         parent::__construct();
         $this->userRepository = new UserRepository();
     }
+
     public function logout()
     {
         session_destroy();
         return $this->render('login', ['messages' => ['You have been logged out successfully']]);
     }
+
     public function login()
     {
         if (!$this->isPost()) {
@@ -33,6 +36,9 @@ class SecurityController extends AppController {
             return $this->render('login', ["messages" => [$error->getMessage()]]);
         }
 
+        if ($user->getEmail() === '') {
+            return $this->render('login', ['messages' => ['Please insert your credentials!']]);
+        }
 
         if (!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
@@ -47,6 +53,8 @@ class SecurityController extends AppController {
 
     public function register()
     {
+
+
         if (!$this->isPost()) {
             return $this->render('register');
         }
@@ -58,6 +66,10 @@ class SecurityController extends AppController {
         $surname = $_POST['surname'];
         $phone = $_POST['phone'];
         $id = "";
+
+        if ($email === '' || $password === '' || $name === '' || $surname === '') {
+            return $this->render('register', ['messages' => ['Please insert your credentials!']]);
+        }
 
         if ($password !== $confirmedPassword) {
             return $this->render('register', ['messages' => ['Please provide proper password']]);
