@@ -4,6 +4,7 @@
 MemeLord is a dynamic web application for creating, sharing and discovering memes. It offers a range of features to provide a complete meme-sharing experience.
 ## Table of Contents
 - [Features](#features)
+- [Technologies](#technologies)
 - [Docker Deployment](#docker-deployment)
 - [Summary](#summary)
 - [Screenshots](#screenshots)
