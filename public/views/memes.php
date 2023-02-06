@@ -2,9 +2,13 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <link rel="stylesheet" type="text/css" href="public/css/memes.css">
-    <script type="text/javascript" src="./public/js/visual.js" defer></script>
+
 
     <script src="https://kit.fontawesome.com/32e257cbac.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./public/js/visual.js" defer></script>
+    <script type="text/javascript" src="./public/js/search.js" defer></script>
+    <script type="text/javascript" src="./public/js/statistics.js" defer></script>
+
     <title>MEMES</title>
 </head>
 
@@ -22,10 +26,6 @@
                 <a href="#" class="button">People</a>
             </li>
             <li>
-                <i class="fa-regular fa-comments"></i>
-                <a href="#" class="button">Messages</a>
-            </li>
-            <li>
                 <img src="./public/img/trollface.gif">
             </li>
             <li>
@@ -37,9 +37,9 @@
     <main>
         <header>
             <div class="search-bar">
-                <form>
-                    <input placeholder="Search memes">
-                </form>
+
+                <input placeholder="search memes">
+
             </div>
             <div class="add-meme">
                 <i class="fas fa-plus"></i>
@@ -49,22 +49,21 @@
         <section class="memes">
             <?php foreach ($memes as $meme): ?>
 
-                <div id="meme-1">
-
-                    <div>
+                <div id="<?= $meme->getId(); ?>">
+                    <div id="title">
                         <h2><?= $meme->getTitle() ?></h2>
+                    </div>
+                    <div id="descriptionSocial">
+
                         <p><?= $meme->getDescription() ?></p>
                         <div class="social-section">
-                            <i class="fa-solid fa-thumbs-up"> 44</i>
-                            <i class="fa-solid fa-thumbs-down"> 2</i>
+                            <i class="fa-solid fa-circle-plus"> <?= $meme->getLike(); ?></i>
+                            <i class="fa-solid fa-circle-minus"> <?= $meme->getDislike(); ?></i>
                         </div>
                     </div>
                     <img src="public/uploads/<?= $meme->getImage() ?>">
                 </div>
             <?php endforeach; ?>
-            <div>Have you seen it?</div>
-            <div>TiTlE oF MeMe</div>
-            <div>Whooooooa</div>
         </section>
     </main>
     <div class="ads-container">
@@ -75,3 +74,20 @@
     </div>
 </div>
 </body>
+
+<template id="memes-template">
+    <div id="<?= $meme->getId(); ?>">
+        <div id="title">
+            <h2><?= $meme->getTitle() ?></h2>
+        </div>
+        <div id="descriptionSocial">
+
+            <p><?= $meme->getDescription() ?></p>
+            <div class="social-section">
+                <i class="fa-solid fa-circle-plus"> <?= $meme->getLike(); ?></i>
+                <i class="fa-solid fa-circle-minus"> <?= $meme->getDislike(); ?></i>
+            </div>
+        </div>
+        <img src="public/uploads/<?= $meme->getImage() ?>">
+    </div>
+</template>

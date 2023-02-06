@@ -15,18 +15,42 @@ section {
 
 .memes > div > div {
     height: 10%;
-    margin: 2em;
+    margin: 1em;
     color: #000000;
+
+
+}
+#title{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0.1em;
+    font-size: 32px;
+}
+#descriptionSocial{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 0.5em;
+}
+.social-section{
+    font-size: 16px;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
 }
-
+.social-section > i {
+    padding: 15px;
+}
 .memes > div {
     /*background-color: lightgray;*/
     background-image: url("../img/memeBackgrounds/image2.jpg");
     border: 1px solid gray;
+    border-radius: 5px;
     box-shadow: 5px 5px 5px #CCCCCC;
     height: auto;
     width: auto;
@@ -44,4 +68,26 @@ section.memes-form {
 .memes-form > form {
     display: flex;
     flex-direction: column;
+}
+
+@media only screen and (max-device-width: 420px) {
+
+    .memes > div {
+        justify-content: center;
+    }
+
+    .memes > div > img {
+        width: 80%;
+        object-fit: contain;
+    }
+
+    #title{
+
+        font-size: 18px;
+    }
+    #descriptionSocial{
+
+        font-size: 9px;
+
+    }
 }

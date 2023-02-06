@@ -59,7 +59,11 @@ class SecurityController extends AppController {
         }
 
         //TODO try to use better hash function
-        $user = new User($email, md5($password), $name, $surname);
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        if (password_needs_rehash($hashedPassword, PASSWORD_BCRYPT))
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+        //
+        $user = new User($email, $hashedPassword, $name, $surname);
         $user->setPhone($phone);
 
         $this->userRepository->addUser($user);

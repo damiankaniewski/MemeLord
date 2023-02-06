@@ -7,8 +7,11 @@ $path = parse_url( $path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
 Routing::get('memes', 'MemeController');
+Routing::get('like', 'MemeController');
+Routing::get('dislike', 'MemeController');
 Routing::post('login', 'SecurityController');
 Routing::post('addMeme', 'MemeController');
 Routing::post('register', 'SecurityController');
+Routing::post('search', 'MemeController');
 
 Routing::run($path);

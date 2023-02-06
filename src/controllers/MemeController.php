@@ -1,8 +1,8 @@
 <?php
 
 require_once 'AppController.php';
-require_once __DIR__ .'/../models/Meme.php';
-require_once __DIR__ .'/../repository/MemeRepository.php';
+require_once __DIR__ . '/../models/Meme.php';
+require_once __DIR__ . '/../repository/MemeRepository.php';
 
 class MemeController extends AppController
 {
@@ -22,7 +22,7 @@ class MemeController extends AppController
     public function memes()
     {
         $memes = $this->memeRepository->getMemes();
-        $this->render('memes',['memes' => $memes]);
+        $this->render('memes', ['memes' => $memes]);
     }
 
     public function AddMeme()
@@ -35,8 +35,8 @@ class MemeController extends AppController
 
             );
 
-            $meme = new Meme($_POST['title'],$_POST['description'],$_FILES['file']['name']);
-        $this->memeRepository->addMeme($meme);
+            $meme = new Meme($_POST['title'], $_POST['description'], $_FILES['file']['name']);
+            $this->memeRepository->addMeme($meme);
 
 
             return $this->render('memes', [
@@ -48,6 +48,29 @@ class MemeController extends AppController
 
     }
 
+    public function search()
+    {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if($contentType === "application/json"){
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header('Content-type: application/json');
+            http_response_code(200);
+
+            echo json_encode($this->memeRepository->getMemeByTitle($decoded['search']));
+        }
+    }
+
+    public function like(int $id){
+        $this->memeRepository->like($id);
+        http_response_code(200);
+    }
+    public function dislike(int $id){
+        $this->memeRepository->dislike($id);
+        http_response_code(200);
+    }
     private function Validate(array $file): bool
     {
         if ($file['size'] > self::MAX_FILE_SIZE) {
@@ -61,4 +84,6 @@ class MemeController extends AppController
         }
         return true;
     }
+
+
 }

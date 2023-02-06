@@ -14,8 +14,8 @@
         <form class="login" action="login" method="POST">
             <div class="messages">
                 <?php
-                if(isset($messages)){
-                    foreach($messages as $message) {
+                if (isset($messages)) {
+                    foreach ($messages as $message) {
                         echo $message;
                     }
                 }
@@ -24,7 +24,9 @@
             <input name="email" type="text" placeholder="email@email.com">
             <input name="password" type="password" placeholder="password">
             <button type="submit">LOGIN</button>
+
         </form>
+        <button type="goToRegister">No account? Register!</button>
     </div>
 </div>
 </body>

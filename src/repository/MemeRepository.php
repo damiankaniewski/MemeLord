@@ -24,6 +24,9 @@ class MemeRepository extends Repository
             $meme['title'],
             $meme['description'],
             $meme['image'],
+            $meme['like'],
+            $meme['dislike'],
+            $meme['id']
         );
     }
 
@@ -55,10 +58,42 @@ VALUES (?,?,?,?,?)');
             $result[] = new Meme(
                 $meme['title'],
                 $meme['description'],
-                $meme['image']
+                $meme['image'],
+                $meme['like'],
+                $meme['dislike'],
+                $meme['id']
             );
         }
 
         return $result;
+    }
+
+    public function getMemeByTitle(string $searchString){
+        $searchString = '%'.strtolower($searchString).'%';
+        $stmt = $this->database->connect()->prepare('
+        SELECT * FROM memes WHERE LOWER(title) LIKE :search OR LOWER(description) LIKE :search
+        ');
+        $stmt->bindParam(':search',$searchString,PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function like(int $id){
+        $stmt = $this->database->connect()->prepare('
+        UPDATE memes SET "like" = "like" + 1 WHERE id = :id
+        ');
+
+        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function dislike(int $id){
+        $stmt = $this->database->connect()->prepare('
+        UPDATE memes SET "dislike" = "dislike" + 1 WHERE id = :id
+        ');
+
+        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+        $stmt->execute();
     }
 }
