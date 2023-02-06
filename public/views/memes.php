@@ -5,7 +5,6 @@
 
 
     <script src="https://kit.fontawesome.com/32e257cbac.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./public/js/visual.js" defer></script>
     <script type="text/javascript" src="./public/js/search.js" defer></script>
     <script type="text/javascript" src="./public/js/statistics.js" defer></script>
     <script type="text/javascript" src="./public/js/notifications.js" defer></script>
@@ -48,7 +47,7 @@
 
         </header>
         <section class="memes">
-            <?php foreach ($memes as $meme): ?>
+            <?php foreach (array_reverse($memes) as $meme): ?>
 
                 <div id="<?= $meme->getId(); ?>">
                     <div id="title">

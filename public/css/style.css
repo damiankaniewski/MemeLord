@@ -119,6 +119,12 @@ input, textarea {
 .fa-solid{
     font-size: 22px;
 }
+.fa-circle-plus{
+    color:green;
+}
+.fa-circle-minus{
+    color:darkred;
+}
 .base-container {
     display: flex;
     align-items: center;

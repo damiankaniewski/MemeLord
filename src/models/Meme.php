@@ -9,7 +9,7 @@ class Meme
     private $dislike;
     private $id;
 
-    public function __construct($title, $description, $image, $like = 0, $dislike = 0, $id)
+    public function __construct($title, $description, $image, $like = 0, $dislike = 0, $id=null)
     {
         $this->title = $title;
         $this->description = $description;
