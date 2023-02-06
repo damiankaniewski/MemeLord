@@ -31,7 +31,7 @@ docker build -t memelord .
 ```
 docker run -p 80:80 --name memelord-container memelord
 ```
-5. Access the MemeLord application by opening a web browser and navigating to **http://localhost**.
+5. Access the MemeLord application by opening a web browser and navigating to **http://localhost/8080**.
 ## Summary
 MemeLord provides a complete meme-sharing experience, with a range of features for adding, searching and discovering memes. The platform is built using modern web technologies and can be easily deployed using Docker, making it accessible to anyone. Whether you're a meme creator or simply looking for a fun platform to discover new memes, MemeLord has you covered.
 ## Screenshots
