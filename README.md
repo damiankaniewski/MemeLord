@@ -1,5 +1,6 @@
 # MemeLord
-![Logo](public/img/logo.svg)
+<img src="https://github.com/damiankaniewski/MemeLord/blob/master/public/img/logo.svg)" width="200" height="100">
+
 MemeLord is a dynamic web application for creating, sharing and discovering memes. It is created using Docker, HTML, PHP, CSS, and JS, and offers a range of features to provide a complete meme-sharing experience.
 ## Table of Contents
 - [Features](#features)
