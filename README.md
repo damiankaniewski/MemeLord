@@ -12,12 +12,12 @@ MemeLord can be deployed using Docker, making it easy to set up and run the appl
 1. Install Docker on your system.
 2. Clone the MemeLord repository from GitHub.
 3. Navigate to the MemeLord directory and build the Docker image using the following command:
-'''
+```
 docker build -t memelord .
-'''
+```
 4. Run a container from the MemeLord image using the following command:
-'''
+```
 docker run -p 80:80 --name memelord-container memelord
-'''
+```
 5. Access the MemeLord application by opening a web browser and navigating to **http://localhost**.
 ## Summary
