@@ -1,10 +1,19 @@
 # MemeLord
-MemeLord is a dynamic web application for creating, sharing and discovering memes. It is created using Docker, HTML, PHP, CSS, and JS, and offers a range of features to provide a complete meme-sharing experience.
+<img src="https://github.com/damiankaniewski/MemeLord/blob/master/public/img/logo.svg" width="200" height="100">
+
+MemeLord is a dynamic web application for creating, sharing and discovering memes. It offers a range of features to provide a complete meme-sharing experience.
 ## Table of Contents
 - [Features](#features)
+- [Technologies](#technologies)
 - [Docker Deployment](#docker-deployment)
 - [Summary](#summary)
 - [Screenshots](#screenshots)
+## Technologies 
+ - Docker
+ - HTML
+ - CSS
+ - PHP
+ - JavaScript
 ## Features
 - **Adding new memes**: Users can upload and share their own memes on the platform.
 - **Viewing users:** Users can view other users.
@@ -23,7 +32,7 @@ docker build -t memelord .
 ```
 docker run -p 80:80 --name memelord-container memelord
 ```
-5. Access the MemeLord application by opening a web browser and navigating to **http://localhost**.
+5. Access the MemeLord application by opening a web browser and navigating to **http://localhost/8080**.
 ## Summary
 MemeLord provides a complete meme-sharing experience, with a range of features for adding, searching and discovering memes. The platform is built using modern web technologies and can be easily deployed using Docker, making it accessible to anyone. Whether you're a meme creator or simply looking for a fun platform to discover new memes, MemeLord has you covered.
 ## Screenshots
