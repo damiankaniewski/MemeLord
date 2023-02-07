@@ -56,5 +56,14 @@ section.users-form {
         object-fit: contain;
     }
 
+    section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2em;
+        padding: 2em;
+        overflow: auto;
+        color: #FFFFFF;
+        text-shadow: 3px 3px 0px #000000;
+    }
 
 }

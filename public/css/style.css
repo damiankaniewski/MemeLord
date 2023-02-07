@@ -74,30 +74,6 @@ input, textarea {
 }
 
 
-@media only screen and (max-device-width: 420px) {
-    .container {
-        flex-direction: column;
-    }
-
-    * {
-        font-size: 36px;
-    }
-
-    .login-container, .register-container
-    .logo {
-        width: 100%;
-    }
-
-    form {
-        margin: auto;
-    }
-
-    img {
-        height: 7em;
-        margin: 2em;
-    }
-}
-
 #formButton {
     display: flex;
     align-items: center;
@@ -323,4 +299,36 @@ header {
     border-radius: 1em;
     box-shadow: 0 0 0.2em red;
     outline: none;
+}
+
+@media only screen and (max-device-width: 420px) {
+    .container {
+        flex-direction: column;
+    }
+
+    * {
+        font-size: 24px;
+    }
+
+    .login-container,
+    .logo {
+        width: 100%;
+    }
+
+    form {
+        margin: auto;
+    }
+
+    img {
+        height: 7em;
+        margin: 2em;
+    }
+    .search-bar{
+        font-size: 10px;
+    }
+    .register-container{
+        width: 100%;
+    }
+
+
 }
